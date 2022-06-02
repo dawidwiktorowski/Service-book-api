@@ -11,7 +11,7 @@
             </column>
             <column name="mark" type="VARCHAR(100)"/>
             <column name="model" type="VARCHAR(100)"/>
-            <column name="register_number" type="BIGINT"/>
+            <column name="register_number" type="INT"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>
