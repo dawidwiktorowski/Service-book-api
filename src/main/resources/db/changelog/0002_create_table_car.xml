@@ -11,7 +11,7 @@
             </column>
             <column name="mark" type="VARCHAR(100)"/>
             <column name="model" type="VARCHAR(100)"/>
-            <column name="register_number" type="INT">
+            <column name="number_vin" type="INT">
                 <constraints unique="true"/>
             </column>
             <column name="owner_id" type="BIGINT">
