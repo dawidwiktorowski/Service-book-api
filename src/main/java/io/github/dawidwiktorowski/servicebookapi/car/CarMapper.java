@@ -6,7 +6,7 @@ public class CarMapper {
         carDto.setId(car.getId());
         carDto.setMark(car.getMark());
         carDto.setModel(car.getModel());
-        carDto.setRegisterNumber(car.getRegisterNumber());
+        carDto.setRegisterNumber(car.getNumberVin());
         return carDto;
     }
 }
