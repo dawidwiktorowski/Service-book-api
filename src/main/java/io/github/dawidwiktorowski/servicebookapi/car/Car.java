@@ -1,9 +1,8 @@
 package io.github.dawidwiktorowski.servicebookapi.car;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import io.github.dawidwiktorowski.servicebookapi.owner.Owner;
+
+import javax.persistence.*;
 
 @Entity
 public class Car {
@@ -14,6 +13,9 @@ public class Car {
     private String mark;
     private String model;
     private int registerNumber;
+    @ManyToOne
+    @JoinColumn(name = "owner_id", referencedColumnName = "id")
+    private Owner owner;
 
     public Long getId() {
         return id;
@@ -45,5 +47,13 @@ public class Car {
 
     public void setRegisterNumber(int registerNumber) {
         this.registerNumber = registerNumber;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 }

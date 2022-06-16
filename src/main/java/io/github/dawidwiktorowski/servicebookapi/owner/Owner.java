@@ -1,10 +1,9 @@
 package io.github.dawidwiktorowski.servicebookapi.owner;
 
-import io.github.dawidwiktorowski.servicebookapi.car.Car;
-
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Owner {
@@ -15,19 +14,6 @@ public class Owner {
     private String firstName;
     private String lastName;
     private String phoneNumber;
-    @OneToMany(mappedBy = "owner")
-    private List<Car> cars = new ArrayList<>();
-
-    public Owner() {
-    }
-
-    public Owner(Long id, String firstName, String lastName, String phoneNumber, List<Car> cars) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.cars = cars;
-    }
 
     public Long getId() {
         return id;
@@ -59,13 +45,5 @@ public class Owner {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public List<Car> getCars() {
-        return cars;
-    }
-
-    public void setCars(List<Car> cars) {
-        this.cars = cars;
     }
 }
