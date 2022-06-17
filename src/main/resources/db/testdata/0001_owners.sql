@@ -1,0 +1,10 @@
+insert into owner (first_name, last_name, phone_number) values ('Dorey', 'Booty', '905-739-8087');
+insert into owner (first_name, last_name, phone_number) values ('Leontine', 'Port', '747-189-0722');
+insert into owner (first_name, last_name, phone_number) values ('Trip', 'Gonsalo', '208-431-6246');
+insert into owner (first_name, last_name, phone_number) values ('Claudell', 'Cawthry', '991-391-7694');
+insert into owner (first_name, last_name, phone_number) values ('Annissa', 'Newell', '740-984-0593');
+insert into owner (first_name, last_name, phone_number) values ('Violante', 'Kitchingman', '596-726-0524');
+insert into owner (first_name, last_name, phone_number) values ('Fancy', 'Ivanaev', '548-617-6209');
+insert into owner (first_name, last_name, phone_number) values ('Eugen', 'Setterington', '667-666-2534');
+insert into owner (first_name, last_name, phone_number) values ('Leo', 'Dockwray', '212-847-1450');
+insert into owner (first_name, last_name, phone_number) values ('Malory', 'Eberlein', '334-355-7713');
