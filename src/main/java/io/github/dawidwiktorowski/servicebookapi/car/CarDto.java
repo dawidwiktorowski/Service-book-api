@@ -5,7 +5,7 @@ public class CarDto {
     private Long id;
     private String mark;
     private String model;
-    private int registerNumber;
+    private String numberVin;
 
     public Long getId() {
         return id;
@@ -31,11 +31,11 @@ public class CarDto {
         this.model = model;
     }
 
-    public int getRegisterNumber() {
-        return registerNumber;
+    public String getNumberVin() {
+        return numberVin;
     }
 
-    public void setRegisterNumber(int registerNumber) {
-        this.registerNumber = registerNumber;
+    public void setNumberVin(String numberVin) {
+        this.numberVin = numberVin;
     }
 }
