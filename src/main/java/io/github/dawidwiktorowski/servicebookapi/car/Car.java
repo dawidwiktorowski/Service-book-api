@@ -12,7 +12,7 @@ public class Car {
     private Long id;
     private String mark;
     private String model;
-    private int numberVin;
+    private String numberVin;
     @ManyToOne
     @JoinColumn(name = "owner_id", referencedColumnName = "id")
     private Owner owner;
@@ -41,11 +41,11 @@ public class Car {
         this.model = model;
     }
 
-    public int getNumberVin() {
+    public String getNumberVin() {
         return numberVin;
     }
 
-    public void setNumberVin(int registerNumber) {
+    public void setNumberVin(String registerNumber) {
         this.numberVin = registerNumber;
     }
 
