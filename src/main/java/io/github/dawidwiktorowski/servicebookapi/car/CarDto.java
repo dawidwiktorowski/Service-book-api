@@ -6,6 +6,7 @@ public class CarDto {
     private String mark;
     private String model;
     private String numberVin;
+    private String owner;
 
     public Long getId() {
         return id;
@@ -37,5 +38,13 @@ public class CarDto {
 
     public void setNumberVin(String numberVin) {
         this.numberVin = numberVin;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 }
