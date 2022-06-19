@@ -1,4 +1,4 @@
-package io.github.dawidwiktorowski.servicebookapi.car;
+package io.github.dawidwiktorowski.servicebookapi.domain.car;
 
 public class CarDtoMapper {
 

@@ -1,4 +1,4 @@
-package io.github.dawidwiktorowski.servicebookapi.owner;
+package io.github.dawidwiktorowski.servicebookapi.domain.owner;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

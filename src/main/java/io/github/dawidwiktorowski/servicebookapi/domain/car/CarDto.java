@@ -1,21 +1,20 @@
-package io.github.dawidwiktorowski.servicebookapi.car;
+package io.github.dawidwiktorowski.servicebookapi.domain.car;
 
-import io.github.dawidwiktorowski.servicebookapi.owner.Owner;
+public class CarDto {
 
-import javax.persistence.*;
-
-@Entity
-public class Car {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String mark;
     private String model;
     private String numberVin;
-    @ManyToOne
-    @JoinColumn(name = "owner_id", referencedColumnName = "id")
-    private Owner owner;
+    private String owner;
+
+    public CarDto(Long id, String mark, String model, String numberVin, String owner) {
+        this.id = id;
+        this.mark = mark;
+        this.model = model;
+        this.numberVin = numberVin;
+        this.owner = owner;
+    }
 
     public Long getId() {
         return id;
@@ -45,15 +44,15 @@ public class Car {
         return numberVin;
     }
 
-    public void setNumberVin(String registerNumber) {
-        this.numberVin = registerNumber;
+    public void setNumberVin(String numberVin) {
+        this.numberVin = numberVin;
     }
 
-    public Owner getOwner() {
+    public String getOwner() {
         return owner;
     }
 
-    public void setOwner(Owner owner) {
+    public void setOwner(String owner) {
         this.owner = owner;
     }
 }
