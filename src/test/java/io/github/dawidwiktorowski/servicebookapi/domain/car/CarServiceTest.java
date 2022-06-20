@@ -34,7 +34,14 @@ class CarServiceTest {
     }
 
     @Test
-    @Disabled
     void findByMark() {
+        //given
+        String mark = "Volkswagen";
+
+        //when
+        underTest.findByMark(mark);
+
+        //then
+        verify(carRepository).findAllByMarkContainingIgnoreCase(mark);
     }
 }
