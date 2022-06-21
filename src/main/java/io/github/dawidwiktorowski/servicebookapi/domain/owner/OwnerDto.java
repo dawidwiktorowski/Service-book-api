@@ -7,6 +7,9 @@ public class OwnerDto {
     private String lastName;
     private String phoneNumber;
 
+
+    private String pesel;
+
     public Long getId() {
         return id;
     }
@@ -37,5 +40,13 @@ public class OwnerDto {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getPesel() {
+        return pesel;
+    }
+
+    public void setPesel(String pesel) {
+        this.pesel = pesel;
     }
 }

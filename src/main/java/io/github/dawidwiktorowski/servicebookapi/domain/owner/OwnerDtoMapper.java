@@ -11,6 +11,7 @@ public class OwnerDtoMapper {
         ownerDto.setFirstName(owner.getFirstName());
         ownerDto.setLastName(owner.getLastName());
         ownerDto.setPhoneNumber(owner.getPhoneNumber());
+        ownerDto.setPesel(ownerDto.getPesel());
         return ownerDto;
     }
 
@@ -19,7 +20,8 @@ public class OwnerDtoMapper {
         owner.setId(ownerDto.getId());
         owner.setFirstName(ownerDto.getFirstName());
         owner.setLastName(ownerDto.getLastName());
-        owner.setPhoneNumber(owner.getPhoneNumber());
+        owner.setPhoneNumber(ownerDto.getPhoneNumber());
+        owner.setPesel(ownerDto.getPesel());
         return owner;
     }
 }
