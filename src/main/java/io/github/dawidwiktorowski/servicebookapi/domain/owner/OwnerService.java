@@ -14,8 +14,15 @@ public class OwnerService {
     }
 
 
-    List<OwnerDto> findAllOwners(){
+    List<OwnerDto> findAllOwners() {
         return ownerRepository.findAll()
+                .stream()
+                .map(OwnerDtoMapper::toDto)
+                .toList();
+    }
+
+    List<OwnerDto> findOwnerByLastName(String lastName) {
+        return ownerRepository.findAllByLastNameContainingIgnoreCase(lastName)
                 .stream()
                 .map(OwnerDtoMapper::toDto)
                 .toList();

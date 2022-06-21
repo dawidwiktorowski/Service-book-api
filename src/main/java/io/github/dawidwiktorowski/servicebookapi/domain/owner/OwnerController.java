@@ -2,6 +2,7 @@ package io.github.dawidwiktorowski.servicebookapi.domain.owner;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,7 +18,10 @@ public class OwnerController {
     }
 
     @GetMapping("")
-    public List<OwnerDto> findAllOwners() {
-        return ownerService.findAllOwners();
+    public List<OwnerDto> findAllOwners(@RequestParam (required = false) String lastName) {
+        if (lastName != null)
+            return ownerService.findOwnerByLastName(lastName);
+        else
+            return ownerService.findAllOwners();
     }
 }
