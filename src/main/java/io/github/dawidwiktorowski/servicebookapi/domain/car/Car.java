@@ -17,6 +17,17 @@ public class Car {
     @JoinColumn(name = "owner_id", referencedColumnName = "id")
     private Owner owner;
 
+    public Car() {
+    }
+
+    public Car(Long id, String mark, String model, String numberVin, Owner owner) {
+        this.id = id;
+        this.mark = mark;
+        this.model = model;
+        this.numberVin = numberVin;
+        this.owner = owner;
+    }
+
     public Long getId() {
         return id;
     }

@@ -1,14 +1,16 @@
 package io.github.dawidwiktorowski.servicebookapi.domain.car;
 
+import io.github.dawidwiktorowski.servicebookapi.domain.owner.Owner;
+
 public class CarDto {
 
     private Long id;
     private String mark;
     private String model;
     private String numberVin;
-    private String owner;
+    private Owner owner;
 
-    public CarDto(Long id, String mark, String model, String numberVin, String owner) {
+    public CarDto(Long id, String mark, String model, String numberVin, Owner owner) {
         this.id = id;
         this.mark = mark;
         this.model = model;
@@ -48,11 +50,11 @@ public class CarDto {
         this.numberVin = numberVin;
     }
 
-    public String getOwner() {
+    public Owner getOwner() {
         return owner;
     }
 
-    public void setOwner(String owner) {
+    public void setOwner(Owner owner) {
         this.owner = owner;
     }
 }

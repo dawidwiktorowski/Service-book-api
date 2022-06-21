@@ -2,10 +2,7 @@ package io.github.dawidwiktorowski.servicebookapi.web;
 
 import io.github.dawidwiktorowski.servicebookapi.domain.car.CarDto;
 import io.github.dawidwiktorowski.servicebookapi.domain.car.CarService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,7 +17,7 @@ public class CarController {
     }
 
     @GetMapping("")
-    public List<CarDto> findAll(@RequestParam(required = false) String mark){
+    public List<CarDto> findAll(@RequestParam(required = false) String mark) {
         if (mark != null)
             return carService.findByMark(mark);
         else
