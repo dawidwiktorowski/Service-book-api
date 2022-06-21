@@ -1,9 +1,6 @@
 package io.github.dawidwiktorowski.servicebookapi.domain.owner;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Owner {
@@ -14,6 +11,7 @@ public class Owner {
     private String firstName;
     private String lastName;
     private String phoneNumber;
+    @Column(unique = true)
     private String pesel;
 
     public Long getId() {

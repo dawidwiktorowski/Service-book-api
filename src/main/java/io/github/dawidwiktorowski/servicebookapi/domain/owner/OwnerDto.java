@@ -7,7 +7,6 @@ public class OwnerDto {
     private String lastName;
     private String phoneNumber;
 
-
     private String pesel;
 
     public Long getId() {
