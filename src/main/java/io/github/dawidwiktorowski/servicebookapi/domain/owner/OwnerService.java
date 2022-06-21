@@ -3,6 +3,7 @@ package io.github.dawidwiktorowski.servicebookapi.domain.owner;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OwnerService {
@@ -26,6 +27,16 @@ public class OwnerService {
                 .stream()
                 .map(OwnerDtoMapper::toDto)
                 .toList();
+    }
+
+    OwnerDto save(OwnerDto owner) {
+        Optional<Owner> ownerByPesel = ownerRepository.findByPesel(owner.getPesel());
+        ownerByPesel.ifPresent(o -> {
+            throw new DuplicatePeselException();
+        });
+        Owner ownerEntity = OwnerDtoMapper.toEntity(owner);
+        Owner savedOwner = ownerRepository.save(ownerEntity);
+        return OwnerDtoMapper.toDto(savedOwner);
     }
 
 }
