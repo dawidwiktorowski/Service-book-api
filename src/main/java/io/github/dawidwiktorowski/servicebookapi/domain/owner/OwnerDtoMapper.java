@@ -11,7 +11,7 @@ public class OwnerDtoMapper {
         ownerDto.setFirstName(owner.getFirstName());
         ownerDto.setLastName(owner.getLastName());
         ownerDto.setPhoneNumber(owner.getPhoneNumber());
-        ownerDto.setPesel(ownerDto.getPesel());
+        ownerDto.setPesel(owner.getPesel());
         return ownerDto;
     }
 
