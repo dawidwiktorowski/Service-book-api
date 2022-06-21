@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class OwnerDtoMapper {
 
-    OwnerDto toDto(Owner owner) {
+    static OwnerDto toDto(Owner owner) {
         OwnerDto ownerDto = new OwnerDto();
         ownerDto.setId(owner.getId());
         ownerDto.setFirstName(owner.getFirstName());
@@ -14,7 +14,7 @@ public class OwnerDtoMapper {
         return ownerDto;
     }
 
-    Owner toEntity(OwnerDto ownerDto) {
+   static Owner toEntity(OwnerDto ownerDto) {
         Owner owner = new Owner();
         owner.setId(ownerDto.getId());
         owner.setFirstName(ownerDto.getFirstName());
