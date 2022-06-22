@@ -19,6 +19,13 @@ public class OwnerController {
         this.ownerService = ownerService;
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<OwnerDto> findById(@PathVariable Long id) {
+        return ownerService.findByID(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @GetMapping("")
     public List<OwnerDto> findAllOwners(@RequestParam(required = false) String lastName) {
         if (lastName != null)
@@ -35,7 +42,7 @@ public class OwnerController {
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand(savedOwner)
+                .buildAndExpand(savedOwner.getId())
                 .toUri();
         return ResponseEntity.created(location).body(savedOwner);
     }

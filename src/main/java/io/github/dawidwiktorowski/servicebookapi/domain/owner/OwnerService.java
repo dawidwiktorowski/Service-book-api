@@ -15,6 +15,11 @@ public class OwnerService {
     }
 
 
+    Optional<OwnerDto> findByID(Long id) {
+        return ownerRepository.findById(id).map(OwnerDtoMapper::toDto);
+    }
+
+
     List<OwnerDto> findAllOwners() {
         return ownerRepository.findAll()
                 .stream()
