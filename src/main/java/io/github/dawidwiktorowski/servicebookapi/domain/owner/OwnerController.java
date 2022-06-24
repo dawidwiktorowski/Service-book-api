@@ -49,7 +49,7 @@ public class OwnerController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<OwnerDto> update(@RequestParam Long id, @RequestBody OwnerDto owner) {
+    public ResponseEntity<OwnerDto> update(@PathVariable Long id, @RequestBody OwnerDto owner) {
         if (!id.equals(owner.getId()))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The updated object must have the same id as in the path");
         OwnerDto updatedOwner = ownerService.update(owner);
