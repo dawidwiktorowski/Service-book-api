@@ -35,12 +35,12 @@ class CarServiceTest {
     @Test
     void findByMark() {
         //given
-        String mark = "Volkswagen";
+        String text = "Volkswagen";
 
         //when
-        underTest.findByMark(mark);
+        underTest.findAllByMarkOrNumberVin(text);
 
         //then
-        verify(carRepository).findAllByMarkContainingIgnoreCase(mark);
+        verify(carRepository).findAllByMarkOrNumberVin(text);
     }
 }
