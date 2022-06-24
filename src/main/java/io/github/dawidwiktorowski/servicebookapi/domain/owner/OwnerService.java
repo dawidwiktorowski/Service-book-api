@@ -15,7 +15,7 @@ public class OwnerService {
     }
 
 
-    Optional<OwnerDto> findByID(Long id) {
+    Optional<OwnerDto> findById(Long id) {
         return ownerRepository.findById(id).map(OwnerDtoMapper::toDto);
     }
 
@@ -39,6 +39,21 @@ public class OwnerService {
         ownerByPesel.ifPresent(o -> {
             throw new DuplicatePeselException();
         });
+        Owner ownerEntity = OwnerDtoMapper.toEntity(owner);
+        Owner savedOwner = ownerRepository.save(ownerEntity);
+        return OwnerDtoMapper.toDto(savedOwner);
+    }
+
+    OwnerDto update (OwnerDto owner){
+        Optional<Owner> ownerByPesel = ownerRepository.findByPesel(owner.getPesel());
+        ownerByPesel.ifPresent(o -> {
+            if (!o.getId().equals(owner.getId()))
+                throw new DuplicatePeselException();
+        });
+        return mapAndSaveOwner(owner);
+    }
+
+    private OwnerDto mapAndSaveOwner(OwnerDto owner) {
         Owner ownerEntity = OwnerDtoMapper.toEntity(owner);
         Owner savedOwner = ownerRepository.save(ownerEntity);
         return OwnerDtoMapper.toDto(savedOwner);

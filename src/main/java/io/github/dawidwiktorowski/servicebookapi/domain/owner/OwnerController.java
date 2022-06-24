@@ -21,7 +21,7 @@ public class OwnerController {
 
     @GetMapping("/{id}")
     public ResponseEntity<OwnerDto> findById(@PathVariable Long id) {
-        return ownerService.findByID(id)
+        return ownerService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
@@ -34,16 +34,26 @@ public class OwnerController {
             return ownerService.findAllOwners();
     }
 
+
     @PostMapping("")
     public ResponseEntity<OwnerDto> save(@RequestBody OwnerDto owner) {
         if (owner.getId() != null)
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Saved object cannot have id set");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Save object cannot have set id");
         OwnerDto savedOwner = ownerService.save(owner);
-        URI location = ServletUriComponentsBuilder
+        URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand(savedOwner.getId())
+                .buildAndExpand(savedOwner)
                 .toUri();
-        return ResponseEntity.created(location).body(savedOwner);
+        return ResponseEntity.created(uri).body(savedOwner);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<OwnerDto> update(@RequestParam Long id, @RequestBody OwnerDto owner) {
+        if (!id.equals(owner.getId()))
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The updated object must have the same id as in the path");
+        OwnerDto updatedOwner = ownerService.update(owner);
+        return ResponseEntity.ok(updatedOwner);
+    }
+
 }

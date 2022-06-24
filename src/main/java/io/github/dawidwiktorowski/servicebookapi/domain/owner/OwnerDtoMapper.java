@@ -1,8 +1,5 @@
 package io.github.dawidwiktorowski.servicebookapi.domain.owner;
 
-import org.springframework.stereotype.Service;
-
-@Service
 public class OwnerDtoMapper {
 
     static OwnerDto toDto(Owner owner) {
