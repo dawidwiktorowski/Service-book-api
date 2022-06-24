@@ -13,20 +13,10 @@ public class Car {
     private String mark;
     private String model;
     private String numberVin;
-    @ManyToOne
-    @JoinColumn(name = "owner_id", referencedColumnName = "id")
-    private Owner owner;
+//    @ManyToOne
+//    @JoinColumn(name = "owner_id", referencedColumnName = "id")
+//    private Owner owner;
 
-    public Car() {
-    }
-
-    public Car(Long id, String mark, String model, String numberVin, Owner owner) {
-        this.id = id;
-        this.mark = mark;
-        this.model = model;
-        this.numberVin = numberVin;
-        this.owner = owner;
-    }
 
     public Long getId() {
         return id;
@@ -60,11 +50,11 @@ public class Car {
         this.numberVin = registerNumber;
     }
 
-    public Owner getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Owner owner) {
-        this.owner = owner;
-    }
+//    public Owner getOwner() {
+//        return owner;
+//    }
+//
+//    public void setOwner(Owner owner) {
+//        this.owner = owner;
+//    }
 }
