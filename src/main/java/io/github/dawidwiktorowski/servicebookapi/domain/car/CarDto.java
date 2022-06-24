@@ -10,13 +10,6 @@ public class CarDto {
     private String numberVin;
     private Owner owner;
 
-    public CarDto(Long id, String mark, String model, String numberVin, Owner owner) {
-        this.id = id;
-        this.mark = mark;
-        this.model = model;
-        this.numberVin = numberVin;
-        this.owner = owner;
-    }
 
     public Long getId() {
         return id;
