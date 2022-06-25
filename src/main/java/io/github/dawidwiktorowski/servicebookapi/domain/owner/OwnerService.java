@@ -1,9 +1,12 @@
 package io.github.dawidwiktorowski.servicebookapi.domain.owner;
 
+import io.github.dawidwiktorowski.servicebookapi.domain.assignment.OwnerAssignmentDto;
+import io.github.dawidwiktorowski.servicebookapi.domain.assignment.OwnerAssignmentMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class OwnerService {
@@ -57,6 +60,15 @@ public class OwnerService {
         Owner ownerEntity = OwnerDtoMapper.toEntity(owner);
         Owner savedOwner = ownerRepository.save(ownerEntity);
         return OwnerDtoMapper.toDto(savedOwner);
+    }
+
+    List<OwnerAssignmentDto> getOwnerAssignments(Long ownerId){
+        return ownerRepository.findById(ownerId)
+                .map(Owner::getAssignments)
+                .orElseThrow(OwnerNotFoundException::new)
+                .stream()
+                .map(OwnerAssignmentMapper::toDto)
+                .collect(Collectors.toList());
     }
 
 }
