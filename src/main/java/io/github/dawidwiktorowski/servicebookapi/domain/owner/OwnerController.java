@@ -1,5 +1,6 @@
 package io.github.dawidwiktorowski.servicebookapi.domain.owner;
 
+import io.github.dawidwiktorowski.servicebookapi.domain.assignment.OwnerAssignmentDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -54,6 +55,11 @@ public class OwnerController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The updated object must have the same id as in the path");
         OwnerDto updatedOwner = ownerService.update(owner);
         return ResponseEntity.ok(updatedOwner);
+    }
+
+    @GetMapping("/{id}/assignments")
+    public List<OwnerAssignmentDto> getOwnerAssignments(@PathVariable Long id){
+        return ownerService.getOwnerAssignments(id);
     }
 
 }
